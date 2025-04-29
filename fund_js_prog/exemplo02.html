@@ -5,9 +5,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
-    <title>Document</title>
+    <title>Dia_de_Deploy</title>
+
     <style>
         :root {
+            --clarencio: #fff;
+            --sumo: #000;
+            --tbd: #7d1ad4;
+            --bdb: #6e17b9;
+
+        }
+
+        [data-theme="dark"] {
+
+            --fundo-claro: #000;
+            --fundo-escuro: #fff;
+            --texto-claro: #fff;
+            --texto-escuro: #000;
+        }
+
+        * {
+
+            margin: 0;
+            padding: 0;
+        }
+
+        /*body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--clarencio);
+            color: var(--texto-claro);
+
+         } */
+       body{
+        background-color: var(--fundo-claro);
+            color: var(--texto-claro);
+            /* Adicionar esta linha */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+     }
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+            background-color: var(--sumo);
+            color: var(--tbd);
+            padding: 2rem;
+            border-radius: 1.5rem;
+
+        }
+
+        button {
+            background-color: var(--bdb);
+            color: var(--texto-escuro);
+            padding: 0.4rem;
+            border: none;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+
+        }
+
+        button:hover {
+            background-color: var(--bdb);
+            transition: 0.8s;
+        }
+
+        svg {
+            color: var(--clarencio);
+            width: 34px;
+            height: 34px;
+        }
+
+        /* :root {
             --clarencio: #fff;
             --sumo: #000;
             --tbd: #7d1ad4;
@@ -34,6 +110,7 @@
             justify-content: center;
             align-items: center;
             background-color: var(--clarencio);
+            color: var(--texto-claro);
         }
 
         div {
@@ -52,7 +129,7 @@
         button {
             background-color: var(--bdb);
             color:var(--texto-escuro);
-            padding: 0.3em;
+            padding: 0.4em;
             border:none;
             border-radius: 50%;
             width: 80px;
@@ -68,10 +145,17 @@
 
         svg {
             color: var(--clarencio);
-            width: 60px;
-            height: 50px;
-        }
+            width: 34px;
+            height: 34px;
+        } */
+        /* O codigo do css,
+        pode ser usado fora do css,como:no html
+        só que de uma forma certa,
+        porque ser for usado de uma forma errada,
+        depois terá que corrigir as outras dezenas,
+        unidades ou centenas de outras paginas. */
     </style>
+
 </head>
 
 
@@ -79,7 +163,9 @@
 <body>
     <div>
         <h1>Dia de Deploy</h1>
-        <p>Dia de Deploy,dia que o filho chora,e a mãe não ver.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia delectus facilis facere maiores culpa
+            deleniti consequatur, dolor perferendis maxime totam a similique quam nihil numquam quaerat corporis
+            provident ab magnam.</p>
 
         <button id="btn-dark-mode"></button>
     </div>
@@ -94,6 +180,8 @@
     btnDarkMode.addEventListener('click', () => {
 
         let oldTheme = localStorage.getItem('themeSystem') || 'light';
+
+        // Em HTML, a palavra-chave let não é usada diretamente. A let é utilizada em JavaScript para declarar variáveis
 
         let newtheme = oldTheme == "light" ? "dark" : "light";
 
@@ -115,13 +203,13 @@
 
         document.documentElement.setAttribute("data-theme", theme);
 
-        if (theme == "light") {
+        if (theme === "light") {
 
-            btnDarkMode.innerHTML = darkSvg;
+            btnDarkMode.innerHTML= darkSvg;
 
-            return
+            return;
         }
-        btnDarkModee.innerHTML = lightSvg;
+        btnDarkMode.innerHTML = lightSvg;
     }
 
     defineCurrentTheme(themeSystem);
