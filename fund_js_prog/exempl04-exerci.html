@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo04</title>
+    <link rel="stylesheet" href="./Favicon02.png.png">
+
+   <style>
+    :root{
+        --gabriel:green;
+        --ster:purple;
+        --nicolas:black;
+    }
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+
+    }
+    body{
+        background: var(--ster);
+        background-image:linear-gradient(to top,var(--gabriel),var(--nicolas));
+        background-attachment: fixed;
+    }
+    header,
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+    button{
+        width: 80px;
+    }
+   
+
+   </style>
+
+</head> 
+
+<body>
+    <header>
+        <h1>Lampada</h1>
+    </header>
+    <section>
+        <div>
+            <img src="./assets/lamp_off.png.jpeg" alt="Lampada Off"id="lamp">
+
+        </div>
+
+        <div>
+            <button id="turnOn">Lá ele</button>
+            <button id="turnOff"> Ih Oh Cara</button>
+        </div>
+    </section>
+</body>
+
+<script>
+  
+    const turnOn = document.getElementById('turnOn');
+    const turnOff = document.getElementById('turnOff');
+    const lamp = document.getElementById('lamp');
+    
+    function isLampBroken(){
+        return lamp.src.indexOf('quebrada')> -1
+    }
+
+    function lampOff(){
+        if (!isLampBroken()){
+lamp.src = './assets/lamp_off.png.jpeg';
+
+        }
+    }
+
+
+    function lampOn(){
+        if (!isLampBroken()){
+            lamp.src = './assets/lamp_on.png.jepg';
+
+        }
+    }
+  
+  function isLampBroken(){
+    lamp.src ='./assets/lamp_broke.png.jpeg';
+  }
+
+  turnOn.addEventListener('click',lampOn);
+  turnOff.addEventListener('click',lampOff);
+  lamp.addEventListener('mouseover',lampOn);
+  lamp.addEventListener('mouseleave',lampOff);
+  lamp.addEventListener('dblclick',isLampBroken);
+
+</script>
+</html>

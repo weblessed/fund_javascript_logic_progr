@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 04</title>
+    <link rel="stylesheet" href="./Favicon02.png.png">
+
+
+    <style>
+        body {
+            background-color: #8a2be2;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+        }
+
+        h2 {
+            color: #ffffff;
+            font-weight: 200;
+        }
+
+        button {
+            padding: 15px;
+            background: transparent;
+            border: 2px solid white;
+            color: #ffff;
+            transition: 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        button:hover {
+            background: #a20000;
+            color: #0000;
+            cursor: pointer;
+        }
+
+        button:active {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./Aurora Boreal.png" alt="Aurora">
+    <button id="btn">Qual sua Cor?</button>
+    <h2 id="hexCode">#8a2e2</h2>
+    <script>
+        const btn = document.getElementById("btn");
+
+        let hex = document.getElementById("hexCode");
+
+        function trocarCor() {
+
+            let letters = "0123456789ABCDEF";
+            let color = "#";
+
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        btn.addEventListener("click", () => {
+            document.body.style.backgroundColor = trocarCor();
+            hex.innerHTML =trocarCor();
+        });
+
+    </script>
+
+</body>
+
+</html>
