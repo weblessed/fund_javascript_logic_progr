@@ -203,11 +203,11 @@
 
         document.documentElement.setAttribute("data-theme", theme);
 
-        if (theme == "light") {
+        if (theme === "light") {
 
             btnDarkMode.innerHTML= darkSvg;
 
-            return
+            return;
         }
         btnDarkMode.innerHTML = lightSvg;
     }
